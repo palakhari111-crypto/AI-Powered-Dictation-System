@@ -27,8 +27,14 @@ A modular academic MVP for classroom dictation and handwritten-answer evaluation
 
 ## Quick start (Windows)
 
-1. Download and extract the project archive from this repository.
-2. Open a terminal in the extracted `ai_dictation_system` folder.
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/palakhari111-crypto/AI-Powered-Dictation-System.git
+   cd AI-Powered-Dictation-System
+   ```
+
+2. Open a terminal in the project folder.
 3. Create and activate a virtual environment:
 
    ```powershell
@@ -58,7 +64,7 @@ A modular academic MVP for classroom dictation and handwritten-answer evaluation
 
 8. Open the frontend at http://localhost:8501. The API documentation is available at http://127.0.0.1:8000/docs.
 
-See [the installation guide](docs/INSTALLATION_GUIDE.md) in the extracted project for detailed setup instructions.
+See the [installation guide](docs/INSTALLATION_GUIDE.md) for detailed setup instructions.
 
 ## Important limitations
 
@@ -71,7 +77,3 @@ Teacher source-image OCR, multi-page processing, advanced analytics, PDF/Excel e
 - Never commit your real `.env`, credentials, student records, uploaded answer images, audio files, or local SQLite database.
 - Configure a strong secret key before running the application.
 - Add HTTPS, rate limiting, backups, audit logging, and data-retention controls before any real deployment.
-
-## Project archive
-
-The complete source package is provided in [`ai_dictation_system_sqlite.zip`](ai_dictation_system_sqlite.zip). It includes the backend, frontend, tests, documentation, and sample environment configuration.
