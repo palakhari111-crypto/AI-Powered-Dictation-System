@@ -2,7 +2,7 @@ import os
 import requests
 import streamlit as st
 
-BASE = os.getenv("API_BASE_URL", "http://127.0.0.1:8000")
+BASE = os.getenv("API_BASE_URL", "http://127.0.0.1:8000").rstrip("/")
 
 def request(method, path, token=None, **kwargs):
     headers = kwargs.pop("headers", {})

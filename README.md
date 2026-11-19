@@ -66,6 +66,21 @@ A modular academic MVP for classroom dictation and handwritten-answer evaluation
 
 See the [installation guide](docs/INSTALLATION_GUIDE.md) for detailed setup instructions.
 
+## Deploying on Render
+
+Deploy two web services from this repository.
+
+**API (Docker, includes Tesseract for OCR)**
+- Runtime: **Docker** (uses the included `Dockerfile`)
+- Environment variables: `SECRET_KEY`, `DATABASE_URL=sqlite:///./storage/dictation.db`, `UPLOAD_DIR=storage/uploads`, `AUDIO_DIR=storage/audio`, `OCR_PROVIDER=tesseract`
+
+**UI (Python)**
+- Build command: `pip install -r requirements.txt`
+- Start command: `streamlit run frontend/app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true`
+- Environment variables: `PYTHON_VERSION=3.11.9`, `API_BASE_URL=https://<your-api>.onrender.com` (no trailing slash)
+
+Free Render services use temporary disks: the SQLite database, uploaded images and generated audio are erased on every restart or redeploy. Attach a persistent disk mounted at `/app/storage` (paid plan) to keep data. Teachers must click **Generate audio now** after creating a dictation before students can hear it.
+
 ## Important limitations
 
 This repository contains an academic MVP, not a production-ready deployment. Tesseract is a general OCR baseline and may perform poorly on handwriting. Low-confidence results should be manually reviewed. A dedicated handwriting-text-recognition (HTR) model should be integrated before relying on automated handwriting grading.
